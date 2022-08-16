@@ -8,53 +8,56 @@
     <header th:replace="layout-padrao" />
 
     <center><h1>Cadastro de Escala</h1></center>
-    <form th:action="@{cadastrarescala.html}" method="post" th:object="${escala}" >
-        <table>
-            <tr>
-                <td>
-                    Nome
-                </td>
-                <td>
-                    <input type="text" th:field="*{nome}"/> 
-                    <strong th:if="${#fields.hasErrors('nome')}" th:erros="*{nome}"></strong>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    URL descrição
-                </td>
-                <td>
-                    <input type="url" th:field="*{urlDescricao}"/>
-                    <strong th:if="${#fields.hasErrors('urlDescricao')}" th:erros="*{urlDescricao}"></strong>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    GOOD
-                    <select th:field="*{good}">
-                        <option th:field="*{good}" value="true">Sim</option>
-                        <option th:field="*{good}" value="false" >Não</option>
-                    </select>
-                    <strong th:if="${#fields.hasErrors('good')}" th:erros="*{good}"></strong> 
-                </td>
-                <td>
-                    BadSmells
-                    <select th:field="*{badSmells}">
-                        <option th:field="*{badSmells}" value="false">Não</option>
-                        <option th:field="*{badSmells}" value="true">Sim</option>
-                    </select>
-                    <strong th:if="${#fields.hasErrors('badSmells')}" th:erros="*{badSmells}"></strong>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <center>
-                        <input type="submit"/>
-                    </center>
-                </td>
-            </tr>
-        </table>
-    </form>
+    <center>
+        <form th:action="@{cadastrarescala.html}" method="post" th:object="${escala}" >
+            <table>
+                <tr>
+                    <td>
+                        Nome
+                    </td>
+                    <td>
+                        <input type="text" th:field="*{nome}"/> 
+                        <strong th:if="${#fields.hasErrors('nome')}" th:erros="*{nome}"></strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        URL descrição
+                    </td>
+                    <td>
+                        <input type="url" th:field="*{urlDescricao}"/>
+                        <strong th:if="${#fields.hasErrors('urlDescricao')}" th:erros="*{urlDescricao}"></strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        GOOD
+                        <select th:field="*{good}">
+                            <option th:field="*{good}" value="true">Sim</option>
+                            <option th:field="*{good}" value="false" >Não</option>
+                        </select>
+                        <strong th:if="${#fields.hasErrors('good')}" th:erros="*{good}"></strong> 
+                    </td>
+                    <td>
+                        BadSmells
+                        <select th:field="*{badSmells}">
+                            <option th:field="*{badSmells}" value="false">Não</option>
+                            <option th:field="*{badSmells}" value="true">Sim</option>
+                        </select>
+                        <strong th:if="${#fields.hasErrors('badSmells')}" th:erros="*{badSmells}"></strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <center>
+                            <input type="submit"/>
+                        </center>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </center>
+    
 </body>
 
 </html>

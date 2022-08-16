@@ -9,47 +9,49 @@
     
     
     <center><h1>Edição do Projeto!</h1></center>
-
-    <form th:action="@{../editarprojeto/{id}(id=*{id})}" method="post" th:object="${projeto}">
-        <input type="hidden"  th:field="*{id}"/>
-        <table>
-            <tr>
-                <td>
-                    Titulo
-                </td>
-                <td>
-                    <input type="text" th:field="*{titulo}"/>
-                    <strong th:if="${#fields.hasErrors('titulo')}" th:erros="*{titulo}"></strong>
-                </td>
-            </tr>
-            
-            <tr>
-                <td>
-                    URL do Perfil
-                </td>
-                <td>
-                    <input type="text" th:field="*{urlPerfil}"/>
-                    <strong th:if="${#fields.hasErrors('urlPerfil')}" th:erros="*{urlPerfil}"></strong>                    
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    URL do Repositorio
-                </td>
-                <td>
-                    <input type="text" th:field="*{urlRepositorio}"/>
-                    <strong th:if="${#fields.hasErrors('urlRepositorio')}" th:erros="*{urlRepositorio}"></strong>                    
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <center>
-                        <input type="submit"/>
-                    </center>
-                </td>
-            </tr>
-        </table>
-    </form>
+    <center>
+        <form th:action="@{../editarprojeto/{id}(id=*{id})}" method="post" th:object="${projeto}">
+            <input type="hidden"  th:field="*{id}"/>
+            <table>
+                <tr>
+                    <td>
+                        Titulo
+                    </td>
+                    <td>
+                        <input type="text" th:field="*{titulo}"/>
+                        <strong th:if="${#fields.hasErrors('titulo')}" th:erros="*{titulo}"></strong>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        URL do Perfil
+                    </td>
+                    <td>
+                        <input type="text" th:field="*{urlPerfil}"/>
+                        <strong th:if="${#fields.hasErrors('urlPerfil')}" th:erros="*{urlPerfil}"></strong>                    
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        URL do Repositorio
+                    </td>
+                    <td>
+                        <input type="text" th:field="*{urlRepositorio}"/>
+                        <strong th:if="${#fields.hasErrors('urlRepositorio')}" th:erros="*{urlRepositorio}"></strong>                    
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <center>
+                            <input type="submit"/>
+                        </center>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </center>
+    
     
 </body>
 

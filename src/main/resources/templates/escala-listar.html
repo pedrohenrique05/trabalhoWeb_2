@@ -8,35 +8,38 @@
     <header th:replace="layout-padrao" />
     
     <center><h1>Listagem de Escalas</h1></center>
-
-    <table border="">
-        <tr>
-            <td>
-                ID
-            </td>
-            <td>
-                Nome
-            </td>
-            <td>
-                URL de descrição                
-            </td>
-            <td>
-                Good
-            </td>
-            <td>
-                Bad Smells                
-            </td>
-        </tr>
-        <tr th:each="escala: ${escalas}" th:object="${escala}">
-            <td th:text="*{id}"></td>
-            <th th:text="*{nome}"></th>
-            <th th:text="*{urlDescricao}"></th>
-            <th th:text="*{good}"></th>
-            <th th:text="*{badSmells}"></th>
-            <th><a th:href="@{./editarescala/{id}(id=*{id})}">Editar</a></th>
-            <th><a th:href="@{./excluirescala/{id}(id=*{id})}">Excluir</a></th>
-        </tr>
-    </table>
+    <center>
+        <table border="">
+            <tr>
+                <td>
+                    ID
+                </td>
+                <td>
+                    Nome
+                </td>
+                <td>
+                    URL de descrição                
+                </td>
+                <td>
+                    Good
+                </td>
+                <td>
+                    Bad Smells                
+                </td>
+                <td colspan="2"><center>Opções</center></td>
+            </tr>
+            <tr th:each="escala: ${escalas}" th:object="${escala}">
+                <td th:text="*{id}"></td>
+                <th th:text="*{nome}"></th>
+                <th th:text="*{urlDescricao}"></th>
+                <th th:text="*{good}"></th>
+                <th th:text="*{badSmells}"></th>
+                <th><a th:href="@{./editarescala/{id}(id=*{id})}">Editar</a></th>
+                <th><a th:href="@{./excluirescala/{id}(id=*{id})}">Excluir</a></th>
+            </tr>
+        </table>
+    </center>
+    
     
 </body>
 

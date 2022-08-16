@@ -9,8 +9,7 @@
 
     <center><h1>Cadastro de Observação</h1></center>
     <form th:action="@{/cadastrarobservacao.html/{id}(id=*{id})}" method="post" th:object="${observacao}" >
-        
-        
+    <center>
         <table>
             <tr>
                 <td>
@@ -62,6 +61,9 @@
             </tr>
         </table>
     </form>
+    </center>
+        
+        
 </body>
 
 </html>
