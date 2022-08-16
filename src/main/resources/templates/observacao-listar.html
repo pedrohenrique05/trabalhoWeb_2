@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout-padrao::head(titulo='Listagem de Escala(s)')" />
+
+<body>
+
+    <header th:replace="layout-padrao" />
+    
+    <center><h1>Listagem de Observação</h1></center>
+
+    <table border="">
+        <tr>
+            <td>
+                ID
+            </td>
+            <td>
+                Nome
+            </td>
+            <td>
+                URL de descrição                
+            </td>
+            <td>
+                ID PROJETO
+            </td>
+            <td>
+                Escala
+            </td>
+        </tr>
+        <tr th:each="observacao: ${observacoes}" th:object="${observacao}">
+            <td th:text="*{id}"></td>
+            <th th:text="*{nome}"></th>
+            <th th:text="*{urlDescricao}"></th>
+            <th th:text="*{idProjeto}"></th>
+            <th th:text="*{esc}"></th>
+            <th><a th:href="@{./editarobservacao/{id}(id=*{id})}">Editar</a></th>
+            <th><a th:href="@{./excluirobservacao/{id}(id=*{id})}">Excluir</a></th>
+        </tr>
+    </table>
+    
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout-padrao::head(titulo='Observações')" />
+
+<body>
+
+    <header th:replace="layout-padrao" />
+    
+    
+    <center><h1 th:text="${mensagem}"></h1></center>
+
+    <nav>
+        <ul>
+            
+            <li>
+                <a th:href="@{./listarobservacao.html}">Listar Observações</a>
+            </li>
+        </ul>
+    </nav>
+    
+</body>
+
+</html>

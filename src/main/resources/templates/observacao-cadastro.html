@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout-padrao::head(titulo='Cadastro de Escala')" />
+
+<body>
+        
+    <header th:replace="layout-padrao" />
+
+    <center><h1>Cadastro de Observação</h1></center>
+    <form th:action="@{/cadastrarobservacao.html/{id}(id=*{id})}" method="post" th:object="${observacao}" >
+        
+        
+        <table>
+            <tr>
+                <td>
+                    ID Projeto
+                </td>
+                <td>
+                    <input type="number" id="idProjeto" th:field="*{idProjeto}" readonly />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Nome
+                </td>
+                <td>
+                    <input type="text" th:field="*{nome}"/>
+                    <strong th:if="${#fields.hasErrors('nome')}" th:erros="*{nome}"></strong>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    URL descrição
+                </td>
+                <td>
+                    <input type="url" th:field="*{urlDescricao}"/>
+                    <strong th:if="${#fields.hasErrors('urlDescricao')}" th:erros="*{urlDescricao}"></strong>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Escala
+                </td>
+                <td>
+                    <select  th:field="*{esc}">
+                        <option
+                        th:each="s : ${escalas}" 
+                        th:value="${s.id}"
+                        th:text="${s.nome}"
+                        ></option>
+                    </select>
+                    
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <center>
+                        <input type="submit"/>
+                    </center>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

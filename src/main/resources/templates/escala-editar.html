@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout-padrao::head(titulo='Edição de Escala')" />
+
+<body>
+
+    <header th:replace="layout-padrao" />
+    
+    <center><h1>Edição de Escala!</h1></center>
+
+    <form th:action="@{../editarescala/{id}(id=*{id})}" method="post" th:object="${escala}">
+        <input type="hidden"  th:field="*{id}"/>
+        <table>
+            <tr>
+                <td>
+                    Nome
+                </td>
+                <td>
+                    <input type="text" th:field="*{nome}"/>
+                    <strong th:if="${#fields.hasErrors('nome')}" th:erros="*{nome}"></strong>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    URL de Descrição
+                </td>
+                <td>
+                    <input type="url" th:field="*{urlDescricao}"/>
+                    <strong th:if="${#fields.hasErrors('urlDescricao')}" th:erros="*{urlDescricao}"></strong>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="hidden"  th:field="*{good}"/>
+                </td>
+                <td>
+                    <input type="hidden"  th:field="*{badSmells}"/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <center>
+                        <input type="submit"/>
+                    </center>
+                </td>
+            </tr>
+        </table>
+    </form>
+    
+</body>
+
+</html>

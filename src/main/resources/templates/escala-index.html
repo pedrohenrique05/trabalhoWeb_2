@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout-padrao::head(titulo='Cadastro de Avaliação')" />
+
+<body>
+
+    <header th:replace="layout-padrao"/>
+    
+    
+    <center><h1 th:text="${mensagem}"></h1></center>
+
+    <nav>
+        <ul>
+            <li>
+                <a th:href="@{./cadastrarescala.html}">Cadastrar Nova Escala</a>
+            </li>
+            <li>
+                <a th:href="@{./listarescala.html}">Listar Escalas</a>
+            </li>
+        </ul>
+    </nav>
+    
+</body>
+
+</html>
