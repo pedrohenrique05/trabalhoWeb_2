@@ -9,11 +9,28 @@
 
     <center><h1>Razão Observação / Escalas</h1></center>
     
+
     
     <center><h1 th:text="${mensagem}"></h1></center>
     
         
-        
+    <center>
+        <table border="">
+            <tr>
+                <td>
+                    PROJETO
+                </td>
+                <td>
+                    Razão
+                </td>
+            </tr>
+            <tr th:each="escala: ${escalas}" th:object="${escala}">
+                <td th:text="*{projeto}"></td>
+                <th th:text="*{razao}"></th>
+            </tr>
+        </table>
+    </center>    
+
 </body>
 
 </html>

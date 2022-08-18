@@ -337,11 +337,19 @@ public class ControllerGeral {
     * CRUD Razão
     */
 
+    @Autowired
+    private RepositoryRazao repRazao;
+
     @RequestMapping("/razaoobservacaoescala.html")
     public ModelAndView indexRazao() {
         ModelAndView mv = new ModelAndView("razaoescalaobservacao");
         mv.addObject("mensagem", "Em Desenvolvimento");
         return mv;
+    }
+
+    @RequestMapping("/cadastrarRazoes.html")
+    public void registraRazoes(){
+        //
     }
 
 }
