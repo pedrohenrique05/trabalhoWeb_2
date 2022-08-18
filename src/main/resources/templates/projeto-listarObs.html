@@ -25,21 +25,24 @@
                 <td>
                     URL do Repositorio                
                 </td>
-                
+                <td>Observações</td>
                 <td colspan="4">
                     <center>Opções</center>
                 </td>
             </tr>
-            <tr th:each="projeto: ${projetos}" th:object="${projeto}">
+            <tr th:each="projeto: ${projeto}" th:object="${projeto}">
                 <td th:text="*{id}"></td>
                 <th th:text="*{titulo}"></th>
                 <th th:text="*{urlPerfil}"></th>
                 <th th:text="*{urlRepositorio}"></th>
-                
-                <th><a th:href="@{../detalharProjeto/{id}(id=*{id})}">Detalhes</a></th>
+                <th>
+                    <ul th:each="observacao: ${observacoes}" th:object="${observacao}">
+                        <li th:text="*{nome}"></li>
+                        <li th:text="*{urlDescricao}"></li>
+                    </ul>
+                </th>
                 <th><a th:href="@{../cadastrarObservacaoProjeto/{id}(id=*{id})}">+Observação</a></th>
-                <th><a th:href="@{../editarprojeto/{id}(id=*{id})}">Editar</a></th>
-                <th><a th:href="@{../excluirprojeto/{id}(id=*{id})}">Excluir</a></th>
+                <th><a th:href="@{../listarobservacao.html}">Editar Observações</a></th>
             </tr>
         </table>
     </center>

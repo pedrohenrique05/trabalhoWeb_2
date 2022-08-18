@@ -114,16 +114,19 @@ public class ControllerGeral {
 
     @GetMapping(path = "/detalharProjeto/{idProjeto}")
     public ModelAndView listarProjetoDetalhado(@PathVariable Long idProjeto) {
-        ModelAndView mv = new ModelAndView("projeto-listar");
-        System.out.println("Chamando a consulta: "+idProjeto);
+        ModelAndView mv = new ModelAndView("projeto-listarObs");
+        
         List<ObservacaoGeral> obs = repObs.findByIdProjeto(idProjeto);
-        System.out.println("Tamanho: "+obs.size());
+        Optional<ProjetoGeral> projeto = repProj.findById(idProjeto);
+        
         if(obs.size() != 0){
+            System.out.println("Chamando a consulta: "+idProjeto);
             System.out.println("consulta válida");
             mv.addObject("observacoes", obs);
-            List<ProjetoGeral> pro = repProj.findAll();
-            mv.addObject("projetos", pro);
-            
+            ProjetoGeral pro = projeto.get();
+            mv.addObject("projeto", pro);
+            System.out.println("Total de Obsevações: "+obs.size());        
+            System.out.println("Total do Projeto: "+pro.toString());        
             return mv;    
         }else{
             System.out.println("consulta vazia");
@@ -272,7 +275,7 @@ public class ControllerGeral {
         mv.addObject("escalas", esc);
         repObs.save(obs);
         mv.addObject("observacao", obs);
-        mv.setViewName("redirect:../listarobservacao.html");
+        mv.setViewName("redirect:../projeto-listar.html");
         return mv;
     }
 

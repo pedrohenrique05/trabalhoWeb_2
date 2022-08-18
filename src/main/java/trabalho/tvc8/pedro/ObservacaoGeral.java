@@ -27,13 +27,14 @@ public class ObservacaoGeral {
     //@ManyToOne(cascade = CascadeType.ALL)
     //Escala esc;
     //Escala esc ;
-    String esc;
+    //String esc;
+    Long esc;
 
 
     
     public ObservacaoGeral(Long id, @NotBlank(message = "E preciso um nome!") String nome,
             @NotBlank(message = "E preciso a url para a sua descrição!") String urlDescricao,
-            @NotBlank(message = "E preciso uma única escala a que pertence!") String esc, Long idProjeto) {
+            @NotBlank(message = "E preciso uma única escala a que pertence!") Long esc, Long idProjeto) {
         this.id = id;
         this.nome = nome;
         this.urlDescricao = urlDescricao;
@@ -43,7 +44,7 @@ public class ObservacaoGeral {
 
     public ObservacaoGeral(Long id, @NotBlank(message = "E preciso um nome!") String nome,
             @NotBlank(message = "E preciso a url para a sua descrição!") String urlDescricao,
-            @NotBlank(message = "E preciso uma única escala a que pertence!") String esc) {
+            @NotBlank(message = "E preciso uma única escala a que pertence!") Long esc) {
         this(id,nome,urlDescricao,esc,null);
     }
 
@@ -83,11 +84,11 @@ public class ObservacaoGeral {
         this.urlDescricao = urlDescricao;
     }
 
-    public String getEsc() {
+    public Long getEsc() {
         return esc;
     }
 
-    public void setEsc(String esc) {
+    public void setEsc(Long esc) {
         this.esc = esc;
     }
 
