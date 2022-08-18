@@ -43,8 +43,17 @@
                         Escala
                     </td>
                     <td>
-                        <INPUT TYPE="text" th:field="*{esc}"/>
+                        <INPUT TYPE="hidden" th:field="*{esc}"/>
                         <strong th:if="${#fields.hasErrors('esc')}" th:erros="*{esc}"></strong> 
+                    </td>
+                    <td>
+                        <select  th:field="*{esc}">
+                            <option
+                            th:each="s : ${escalas}" 
+                            th:value="${s.id}"
+                            th:text="${s.nome}"
+                            ></option>
+                        </select>
                     </td>
                 </tr>
                 <tr>

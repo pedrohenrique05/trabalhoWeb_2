@@ -14,5 +14,6 @@ public interface RepositoryObservacaoGeral extends JpaRepository<ObservacaoGeral
     
     
     public List<ObservacaoGeral> findByIdProjeto(Long idProjeto);
+    //public EscalaGeral findByEsc(Long esc);
     
 }

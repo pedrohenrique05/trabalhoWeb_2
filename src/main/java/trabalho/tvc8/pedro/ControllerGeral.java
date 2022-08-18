@@ -275,7 +275,7 @@ public class ControllerGeral {
         mv.addObject("escalas", esc);
         repObs.save(obs);
         mv.addObject("observacao", obs);
-        mv.setViewName("redirect:../projeto-listar.html");
+        mv.setViewName("redirect:../listarprojeto.html");
         return mv;
     }
 
@@ -290,7 +290,7 @@ public class ControllerGeral {
     @GetMapping("/editarobservacao/{id}")
     public ModelAndView editarGETObservacao(@PathVariable Long id) {
         ModelAndView mv = new ModelAndView("observacao-editar");
-
+        
         Optional<ObservacaoGeral> observacaoEditarOptional = repObs.findById(id);
         if (observacaoEditarOptional.isPresent()) {
             ObservacaoGeral obs = observacaoEditarOptional.get();
@@ -310,6 +310,9 @@ public class ControllerGeral {
             mv.addObject("observacao", obs);
             return mv;
         }
+        Optional<EscalaGeral> escAux = repEsc.findById(obs.getEsc());
+        mv.addObject("escalas", escAux);
+        System.out.println("Escala: "+escAux.toString());
         repObs.save(obs);
         mv.addObject("observacao", obs);
         mv.setViewName("redirect:../listarobservacao.html");
