@@ -24,8 +24,8 @@ public class ControllerGeral {
         mv.addObject("mensagem", "Sistema de cadastro de PROJETO!");
         return mv;
     }
-
-        /**
+    
+    /**
      * Controller do CRUD de PROJETO
      */
 
@@ -96,7 +96,6 @@ public class ControllerGeral {
         mv.addObject("projeto", pro);
         mv.setViewName("redirect:../listarprojeto.html");
         return mv;
-
     }
 
     @GetMapping("/excluirprojeto/{id}")
@@ -112,24 +111,25 @@ public class ControllerGeral {
         return mv;
     }
 
-    @GetMapping(path = "/detalharProjeto/{id}")
-    public ModelAndView listarProjetoDetalhado(@PathVariable Long id) {
+
+    @GetMapping(path = "/detalharProjeto/{idProjeto}")
+    public ModelAndView listarProjetoDetalhado(@PathVariable Long idProjeto) {
         ModelAndView mv = new ModelAndView("projeto-listar");
-        //ObservacaoGeral obs = new ObservacaoGeral();
-        System.out.println("Chamando a consulta: "+id);
-        List<ObservacaoGeral> obs = repObs.listarObservacoes(id);
+        System.out.println("Chamando a consulta: "+idProjeto);
+        List<ObservacaoGeral> obs = repObs.findByIdProjeto(idProjeto);
+        System.out.println("Tamanho: "+obs.size());
         if(obs.size() != 0){
             System.out.println("consulta válida");
             mv.addObject("observacoes", obs);
-            //List<ProjetoGeral> pro = repProj.findAll();
-            //mv.addObject("projetos", pro);
+            List<ProjetoGeral> pro = repProj.findAll();
+            mv.addObject("projetos", pro);
+            
             return mv;    
         }else{
             System.out.println("consulta vazia");
             mv.setViewName("redirect:../listarprojeto.html");
             return mv;
         }
-        
     }
 
 
@@ -324,6 +324,17 @@ public class ControllerGeral {
             ObservacaoGeral obs = observacaoExcluir.get();
             repObs.delete(obs);
         }
+        return mv;
+    }
+
+    /**
+    * CRUD Razão
+    */
+
+    @RequestMapping("/razaoobservacaoescala.html")
+    public ModelAndView indexRazao() {
+        ModelAndView mv = new ModelAndView("razaoescalaobservacao");
+        mv.addObject("mensagem", "Em Desenvolvimento");
         return mv;
     }
 
